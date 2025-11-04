@@ -10,4 +10,9 @@ export const CARDS = [
     front: "State vs Props?",
     back: "State is internal and changes; props are inputs from parent.",
   },
+  {
+    id: 4,
+    front: "What does SEO stand for?",
+    back: "Search engine optimisation.",
+  },
 ];

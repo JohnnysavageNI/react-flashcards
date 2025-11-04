@@ -1,11 +1,12 @@
+/* === Global Styles (Vite Base Cleaned Up) === */
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: #111; /* 👈 dark readable text */
+  background-color: #f8fafc; /* 👈 light neutral background */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -28,6 +29,8 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background: #f8fafc;
+  color: #111;
 }
 
 h1 {
@@ -42,27 +45,94 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #f9f9f9;
+  color: #111; /* 👈 ensure button text visible */
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: border-color 0.25s, background-color 0.25s;
 }
 button:hover {
   border-color: #646cff;
+  background-color: #eef2ff;
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
+/* === Flashcard Styles === */
+.card {
+  perspective: 1000px;
+  user-select: none;
+  margin: 12px 0;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  min-height: 180px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease;
+  display: grid;
+  background: #fff;
+}
+
+.card-inner.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  padding: 24px;
+  text-align: center;
+  background: #fff;
+  border-radius: 12px;
+  color: #111; /* 👈 visible text */
+}
+
+.card-face small {
+  color: #6b7280;
+}
+
+.card-front h2,
+.card-back h2 {
+  margin: 0 0 8px 0;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+/* === Optional: Light/Dark Mode Handling === */
+@media (prefers-color-scheme: dark) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #242424;
   }
-  a:hover {
-    color: #747bff;
+
+  body {
+    background-color: #242424;
+    color: #fff;
   }
+
   button {
-    background-color: #f9f9f9;
+    background-color: #1a1a1a;
+    color: #fff;
+  }
+
+  .card-face {
+    background: #2c2c2c;
+    color: #fff;
+  }
+
+  .card-face small {
+    color: #ccc;
   }
 }
