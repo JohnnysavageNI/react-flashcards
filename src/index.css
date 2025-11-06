@@ -146,3 +146,26 @@ button:focus-visible {
   border-color: #ef4444;
   box-shadow: 0 0 12px rgba(239, 68, 68, 0.4);
 }
+
+/* custom button styles */
+.btn-know {
+  background: #d1fae5;
+  border-color: #10b981;
+  color: #111; /* visible text */
+}
+
+.btn-dontknow {
+  background: #fee2e2;
+  border-color: #ef4444;
+  color: #111; /* visible text */
+}
+
+.btn-reset {
+  background: #e0e7ff;
+  border-color: #6366f1;
+  color: #111;
+}
+
+.btn-reset:hover {
+  background: #c7d2fe;
+}

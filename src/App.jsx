@@ -102,17 +102,27 @@ export default function App() {
       />
 
       <div style={{ display: "flex", gap: 12, justifyContent: "center", marginTop: 20 }}>
-        <button
-          onClick={() => markKnow(true)}
-          style={{ background: "#d1fae5", borderColor: "#10b981" }}
-        >
+        <button className="btn-know" onClick={() => markKnow(true)}>
           ✅ I Know This
         </button>
-        <button
-          onClick={() => markKnow(false)}
-          style={{ background: "#fee2e2", borderColor: "#ef4444" }}
-        >
+        <button className="btn-dontknow" onClick={() => markKnow(false)}>
           ❌ Don’t Know Yet
+        </button>
+      </div>
+
+      <div style={{ textAlign: "center", marginTop: 20 }}>
+        <button
+          className="btn-reset"
+          onClick={() => {
+            if (confirm("Reset all progress?")) {
+              localStorage.removeItem("flashcard-progress");
+              setProgress({});
+              setIndex(0);
+              setFlipped(false);
+            }
+          }}
+        >
+          🔄 Reset Progress
         </button>
       </div>
 
