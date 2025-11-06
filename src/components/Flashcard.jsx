@@ -1,4 +1,4 @@
-export default function Flashcard({ card, flipped, setFlipped }) {
+export default function Flashcard({ card, flipped, setFlipped, className = "" }) {
   if (!card) return null;
 
   return (
